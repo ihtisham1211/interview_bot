@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { load } from 'cheerio';
+const axios = require('axios');
+const { load } = require('cheerio');
 const Slimbot = require('slimbot');
 
 const bot = new Slimbot(
@@ -7,7 +7,7 @@ const bot = new Slimbot(
 );
 const groupChatId = '-986446582';
 
-export async function sendPeriodicMessage() {
+async function sendPeriodicMessage() {
   console.log('Job Started');
   try {
     const html = await axios.get(
@@ -47,3 +47,5 @@ export async function sendPeriodicMessage() {
   }
   console.log('Job Ended');
 }
+
+module.exports = { sendPeriodicMessage }
