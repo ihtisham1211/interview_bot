@@ -9,6 +9,10 @@ app.use(cors());
 
 cron.schedule('*/1 * * * *', sendPeriodicMessage);
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Live!' });
+});
+
 app.listen(process.env.PORT, () =>
   console.log('Application listening.....'),
 );
