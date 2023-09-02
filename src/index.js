@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Live!' });
 });
 
-app.listen(process.env.PORT, () =>
+app.listen(3000, () =>
   console.log('Application listening.....'),
 );

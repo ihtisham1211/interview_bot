@@ -13,7 +13,6 @@ export async function sendPeriodicMessage() {
     const html = await axios.get(
       'https://service2.diplo.de/rktermin/extern/appointment_showForm.do?locationCode=isla&realmId=108&categoryId=1600',
     );
-    bot.sendMessage(groupChatId, 'Bot scanning! Runs every minute');
     const $ = load(html.data);
     $(`#appointment_newAppointmentForm_fields_3__content`)
       .children('option')
@@ -22,7 +21,15 @@ export async function sendPeriodicMessage() {
           const option = elem.attribs['value'].split('/');
           bot.sendMessage(
             groupChatId,
+            '----------------------------------------------------',
+          );
+          bot.sendMessage(
+            groupChatId,
             `Appointment found Keyword:2024 ${option[1]}`,
+          );
+          bot.sendMessage(
+            groupChatId,
+            '----------------------------------------------------',
           );
         }
       });
