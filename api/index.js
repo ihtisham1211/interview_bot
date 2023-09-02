@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-import { sendPeriodicMessage } from './bot';
+import { sendPeriodicMessage } from '../bot';
 const cron = require('node-cron');
 
 const app = express();
